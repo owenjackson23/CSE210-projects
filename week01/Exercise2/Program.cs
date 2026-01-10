@@ -9,6 +9,7 @@ class Program
         int gradePercent = int.Parse(input);
         string letter;
 
+        // Determine the letter grade
         if (gradePercent >= 90)
         {
             letter = "A";
@@ -30,13 +31,23 @@ class Program
             letter = "F";
         }
 
+        // plus or minus
         if ((gradePercent % 10 >= 7) && !(letter == "A" || letter == "F"))
         {
             letter += "+";
         }
+        else if ((gradePercent % 10 < 3) && !(letter == "F"))
+        {
+            letter += "-";
+        }
+        else
+        {
+            letter += "";
+        }
 
         Console.WriteLine($"Your letter grade is: {letter}");
 
+        // Pass or Fail
         if (gradePercent >= 70)
         {
             Console.WriteLine("Congratulations! You passed the course.");
