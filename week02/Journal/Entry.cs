@@ -8,6 +8,8 @@ public class Entry
 
     public void Display()
     {
-        // TODO: Implement method to display the journal entry
+        Console.WriteLine(_date);
+        Console.WriteLine($"Prompt: {_promptText}");
+        Console.WriteLine($"\n{_entryText}");
     }
 }
