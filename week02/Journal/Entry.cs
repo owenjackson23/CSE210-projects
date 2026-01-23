@@ -2,14 +2,18 @@ using System;
 
 public class Entry
 {
-    public string _date = "";
-    public string _promptText = "";
-    public string _entryText = "";
+    // Does not work as fields, so I changed to properties
+    // Properties use get and set to access and change the value,
+    // and fields don't
+    public string Date { get; set; } = "";
+    public string PromptText { get; set; } = "";
+    public string EntryText { get; set; } = "";
 
     public void Display()
     {
-        Console.WriteLine(_date);
-        Console.WriteLine($"Prompt: {_promptText}");
-        Console.WriteLine($"\n{_entryText}");
+        Console.WriteLine(Date);
+        Console.WriteLine($"Prompt: {PromptText}");
+        Console.WriteLine($"\n{EntryText}");
+        Console.WriteLine();
     }
 }
