@@ -25,14 +25,18 @@ public class Reference
     public string GetDisplayText()
     {
         string displayText = "";
+
+        // One verse
         if (_endVerse < 1)
         {
             displayText = $"{_book} {_chapter}:{_verse}";
         }
+        // Multiple verses
         else
         {
             displayText = $"{_book} {_chapter}:{_verse}-{_endVerse}";
         }
+
         return displayText;
     }
 }

@@ -8,15 +8,18 @@ public class Word
         _text = text;
     }
 
-    private void Hide()
+    // setters for _isHidden
+    public void Hide()
     {
         _isHidden = true;
     }
-    private void Show()
+    public void Show()
     {
         _isHidden = false;
     }
-    private bool IsHidden()
+
+    // getter for _isHidden
+    public bool GetIsHidden()
     {
         return _isHidden;
     }
@@ -25,11 +28,26 @@ public class Word
     {
         string displayedText = "";
 
-        if (IsHidden())
+        // A list of characters to never hide
+        List<char> neverHideChars = new List<char>
         {
-            for (int i = 0; i < _text.Length; i++)
+            '!', '(', ')', '-', '"',
+            ',', '.', '?', ' '
+        };
+
+        if (_isHidden)
+        {
+            // Replaces letters with underscores
+            foreach (char letter in _text)
             {
-                displayedText += "_";
+                if (neverHideChars.Contains(letter))
+                {
+                    displayedText += letter;
+                }
+                else
+                {
+                    displayedText += "_";
+                }
             }
         }
         else
