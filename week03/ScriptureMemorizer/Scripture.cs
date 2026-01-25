@@ -28,31 +28,36 @@ public class Scripture
                 wordText += text[i];
             }
         }
+        // Add the last word
+        Word lastWord = new Word(wordText);
+        _words.Add(lastWord);
     }
 
-    private void HideRandomWords(int numberToHide)
+    public void HideRandomWords(int numberToHide)
     {
         List<int> randIndexList = new List<int>();
         Random randomGenerator = new Random();
-        int randIndex;
+        int randIndex = -1;
 
         // Pick random indices
         for (int i = 0; i < numberToHide; i++)
         {
-            randIndex = randomGenerator.Next(0, _words.Count());
+            // Repeat random picking until randIndex is a new and unhidden
+            do
+            {
+                randIndex = randomGenerator.Next(0, _words.Count());
+            } while (randIndexList.Contains(randIndex) || _words[randIndex].GetIsHidden());
+
             randIndexList.Add(randIndex);
+            randIndex = -1;
         }
 
         // Hide the words at the random indices
         for (int i = 0; i < _words.Count(); i++)
         {
-            if (randIndexList.Contains(i))
+            if (randIndexList.Contains(i) && !_words[i].GetIsHidden())
             {
                 _words[i].Hide();
-            }
-            else
-            {
-                _words[i].Show();
             }
         }
     }
