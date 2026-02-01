@@ -31,7 +31,7 @@ public class Journal
 
         if (doSave)
         {
-            filename = CheckFileName(filename);
+            //filename = CheckFileName(filename);
 
             // Convert entries to JSON text
             JsonSerializerOptions options = new JsonSerializerOptions
