@@ -9,11 +9,13 @@ public class Customer
         _address = address;
     }
 
+    // Checks if the customer is in the USA
     public bool InUSA()
     {
-
         return _address.InUSA();
     }
+
+    // Getter methods
     public string GetName()
     {
         return _name;

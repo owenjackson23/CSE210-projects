@@ -13,11 +13,14 @@ public class Product
         _quantity = quantity;
     }
 
+    // Calculates the total cost for the product based on price and quantity
     public decimal GetTotalCost()
     {
         decimal totalCost = _price * _quantity;
         return totalCost;
     }
+
+    // Getter methods
     public string GetProductName()
     {
         return _productName;

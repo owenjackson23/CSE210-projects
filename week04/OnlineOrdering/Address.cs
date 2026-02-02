@@ -13,6 +13,7 @@ public class Address
         _country = country;
     }
 
+    // Checks if the address is in the USA
     public bool InUSA()
     {
         string country = _country.ToLower();
@@ -25,6 +26,8 @@ public class Address
             return false;
         }
     }
+
+    // Returns the address as a string
     public string GetAddressString()
     {
         string addressString = $"{_street}\n{_city}, {_state}\n{_country}";
