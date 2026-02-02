@@ -13,6 +13,11 @@ public class Order
         _products = products;
     }
 
+    public void AddProduct(Product product)
+    {
+        _products.Add(product);
+    }
+
     public string GetPackingLabel()
     {
         string packingLabel = "";
@@ -64,5 +69,15 @@ public class Order
 
         totalPrice += shippingCost;
         return totalPrice;
+    }
+
+    public void DisplayOrder()
+    {
+        Console.WriteLine("Packing Label:");
+        Console.WriteLine(GetPackingLabel());
+        Console.WriteLine("\nShipping Label:");
+        Console.WriteLine(GetShippingLabel());
+        Console.WriteLine($"\nTotal Price: {GetTotalPrice():C}");
+        Console.WriteLine(new string('-', 30));
     }
 }

@@ -5,7 +5,7 @@ public class Address
     private string _state;
     private string _country;
 
-    Address(string street, string city, string state, string country)
+    public Address(string street, string city, string state, string country)
     {
         _street = street;
         _city = city;
@@ -30,7 +30,15 @@ public class Address
     // Returns the address as a string
     public string GetAddressString()
     {
-        string addressString = $"{_street}\n{_city}, {_state}\n{_country}";
+        string addressString = "";
+        if (_state == "")
+        {
+            addressString = $"{_street}\n{_city}\n{_country}";
+        }
+        else
+        {
+            addressString = $"{_street}\n{_city}, {_state}\n{_country}";
+        }
         return addressString;
     }
 }

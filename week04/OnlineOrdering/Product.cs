@@ -5,7 +5,7 @@ public class Product
     private decimal _price;
     private int _quantity;
 
-    Product(string name, string id, decimal price, int quantity)
+    public Product(string name, string id, decimal price, int quantity)
     {
         _productName = name;
         _id = id;
