@@ -3,7 +3,11 @@ public class ListingActivity : Activity
     private int _count;
     private List<string> _prompts = new List<string>
     {
-        ""
+        "What are your favorite qualities that you posses?",
+        "Who are the most important people in your life?",
+        "What have you improved at this month?",
+        "What do you appreciate about the person you are closest with?",
+        "What spiritual experiences have you had this month?"
     };
 
     public ListingActivity(string name = "Listing Activity", string description = "This activity will help you focus on positive things as you list as many as you can", int count = 0)
@@ -46,7 +50,7 @@ public class ListingActivity : Activity
         DateTime startTime = DateTime.Now;
 
         // Get user input until duration reached
-        while ((DateTime.Now - startTime).TotalSeconds < _duration)
+        while (!isTimeUp(startTime))
         {
             Console.Write("> ");
             string input = Console.ReadLine();
