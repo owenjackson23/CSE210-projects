@@ -14,6 +14,8 @@ public class Activity
 
     public void DisplayStartingMessage()
     {
+        Console.Clear();
+
         // Provides name and description
         Console.WriteLine($"{_name}:\n\n{_description}\n");
 
@@ -31,9 +33,9 @@ public class Activity
     }
     public void DisplayEndingMessage()
     {
-        Console.WriteLine("Great work!");
+        Console.WriteLine("\n\nGreat work!");
         ShowSpinner(3);
-        Console.WriteLine($"You did the {_name} for {_duration} seconds.");
+        Console.WriteLine($"\nYou did the {_name} for {_duration} seconds.");
         ShowSpinner(5);
     }
 
@@ -42,44 +44,50 @@ public class Activity
     {
         DateTime startTime = DateTime.Now;
 
+        int sleepTime = 250;
+
         while ((DateTime.Now - startTime).TotalSeconds < seconds)
         {
             Console.Write("|");
 
-            Thread.Sleep(100);
+            Thread.Sleep(sleepTime);
 
             Console.Write("\b \b");  // This erases the previous character
             Console.Write("/");  // Replace the character
 
-            Thread.Sleep(100);
+            Thread.Sleep(sleepTime);
 
             Console.Write("\b \b");
             Console.Write("-");
 
-            Thread.Sleep(100);
+            Thread.Sleep(sleepTime);
 
             Console.Write("\b \b");
             Console.Write("\\");
 
-            Thread.Sleep(100);
+            Thread.Sleep(sleepTime);
 
             Console.Write("\b \b");
             Console.Write("|");
 
-            Thread.Sleep(100);
+            Thread.Sleep(sleepTime);
 
             Console.Write("\b \b");
             Console.Write("/");
 
-            Thread.Sleep(100);
+            Thread.Sleep(sleepTime);
 
             Console.Write("\b \b");
             Console.Write("-");
 
-            Thread.Sleep(100);
+            Thread.Sleep(sleepTime);
 
             Console.Write("\b \b");
             Console.Write("\\");
+
+            Thread.Sleep(sleepTime);
+
+            Console.Write("\b \b");
         }
     }
 

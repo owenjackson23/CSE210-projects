@@ -109,16 +109,16 @@ public class BreathingActivity : Activity
     {
         int seconds;
 
-        // If duration is less than 8 seconds,
-        // use 2 second intervals.
-        // Otherwise, use 4 second intervals.
-        if (_duration < 8)
+        // If duration is less than 10 seconds,
+        // use 3 second intervals.
+        // Otherwise, use 5 second intervals.
+        if (_duration < 10)
         {
-            seconds = 2;
+            seconds = 3;
         }
         else
         {
-            seconds = 4;
+            seconds = 5;
         }
 
         DateTime startTime = DateTime.Now;
@@ -136,19 +136,5 @@ public class BreathingActivity : Activity
             Console.Write("\nBreathe out...");
             ShowCountDown(seconds);
         }
-
-        // for (int i = 0; i < _duration / (seconds * 2); i += seconds)
-        // {
-        //     Console.WriteLine("Breathe in...");
-        //     ShowCountDown(seconds);
-        //     i += seconds;
-        //     if (i >= _duration)
-        //     {
-        //         break;
-        //     }
-
-        //     Console.WriteLine("Breathe out...");
-        //     ShowCountDown(seconds);
-        // }
     }
 }
