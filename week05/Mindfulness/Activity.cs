@@ -15,23 +15,26 @@ public class Activity
     public void DisplayStartingMessage()
     {
         // Provides name and description
-        Console.WriteLine($"{_name}: {_description}");
+        Console.WriteLine($"{_name}:\n\n{_description}\n");
 
         // Asks for and sets duration
         Console.WriteLine("How long would you like to do this activity?");
         Console.Write("Enter duration (in seconds): ");
         _duration = int.Parse(Console.ReadLine());
-        Console.WriteLine($"Starting {_name}.");
+        Console.WriteLine($"Get ready...");
 
         // Pause
         ShowSpinner(7);
+
+        // Clear the screen
+        Console.Clear();
     }
     public void DisplayEndingMessage()
     {
         Console.WriteLine("Great work!");
         ShowSpinner(3);
         Console.WriteLine($"You did the {_name} for {_duration} seconds.");
-        ShowSpinner(7);
+        ShowSpinner(5);
     }
 
     // A pause animation
@@ -41,12 +44,42 @@ public class Activity
 
         while ((DateTime.Now - startTime).TotalSeconds < seconds)
         {
-            Console.Write("+");
+            Console.Write("|");
 
-            Thread.Sleep(500);
+            Thread.Sleep(100);
 
             Console.Write("\b \b");  // This erases the previous character
-            Console.Write("-");  // Replace the character
+            Console.Write("/");  // Replace the character
+
+            Thread.Sleep(100);
+
+            Console.Write("\b \b");
+            Console.Write("-");
+
+            Thread.Sleep(100);
+
+            Console.Write("\b \b");
+            Console.Write("\\");
+
+            Thread.Sleep(100);
+
+            Console.Write("\b \b");
+            Console.Write("|");
+
+            Thread.Sleep(100);
+
+            Console.Write("\b \b");
+            Console.Write("/");
+
+            Thread.Sleep(100);
+
+            Console.Write("\b \b");
+            Console.Write("-");
+
+            Thread.Sleep(100);
+
+            Console.Write("\b \b");
+            Console.Write("\\");
         }
     }
 
@@ -59,7 +92,14 @@ public class Activity
         {
             Thread.Sleep(1000);  //Wait 1 second
             Console.Write("\b \b");
-            Console.Write(i - 1);
+            if ((i - 1) <= 0)
+            {
+                Console.Write("");
+            }
+            else
+            {
+                Console.Write(i - 1);
+            }
         }
     }
 

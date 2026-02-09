@@ -31,17 +31,23 @@ public class ReflectingActivity : Activity
     {
         DisplayStartingMessage();
 
-        DateTime startTime = DateTime.Now;
-
         // Display prompt and pause for 5 seconds
         DisplayPrompt();
         ShowSpinner(5);
+
+        Console.WriteLine("\nReflect on each of the following questions as they relate to this experience.");
+        Console.Write("You may begin in: ");
+        ShowCountDown(3);
+        Console.Clear();
+
+        DateTime startTime = DateTime.Now;
 
         // Display questions at intervals of 10 seconds until duration reached
         while (!isTimeUp(startTime))
         {
             DisplayQuestion();
             ShowSpinner(10);
+            Console.WriteLine();
         }
 
         // for (int i = 5; i < _duration / 10; i += 10)
@@ -74,13 +80,19 @@ public class ReflectingActivity : Activity
     // Gets a random prompt and displays it
     public void DisplayPrompt()
     {
+        Console.WriteLine("\nConsider this prompt:\n");
+
+        // Display a prompt
         string prompt = GetRandomPrompt();
-        Console.WriteLine(prompt);
+        Console.WriteLine($" --- {prompt} --- ");
+
+        Console.Write("\nPress 'Enter' when your are ready to continue. ");
+        Console.ReadLine();
     }
     // Gets a random question and displays it
     public void DisplayQuestion()
     {
         string question = GetRandomQuestion();
-        Console.WriteLine(question);
+        Console.Write($"{question} ");
     }
 }

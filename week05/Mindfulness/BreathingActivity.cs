@@ -49,28 +49,28 @@ public class BreathingActivity : Activity
         // Repeat box breathing for duration
         while (!isTimeUp(startTime))
         {
-            Console.WriteLine("Breathe in...");
+            Console.Write("\nBreathe in...");
             ShowCountDown(seconds);
             if (isTimeUp(startTime))  // Break if duration has been reached
             {
                 break;
             }
 
-            Console.WriteLine("Hold...");
+            Console.Write("\nHold...");
             ShowCountDown(seconds);
             if (isTimeUp(startTime))
             {
                 break;
             }
 
-            Console.WriteLine("Breathe out...");
+            Console.Write("\nBreathe out...");
             ShowCountDown(seconds);
             if (isTimeUp(startTime))
             {
                 break;
             }
 
-            Console.WriteLine("Hold...");
+            Console.Write("\nHold...");
             ShowCountDown(seconds);
         }
 
@@ -126,14 +126,14 @@ public class BreathingActivity : Activity
         // Repeat alternate breathing for duration
         while (!isTimeUp(startTime))
         {
-            Console.WriteLine("Breathe in...");
+            Console.Write("\nBreathe in...");
             ShowCountDown(seconds);
             if (isTimeUp(startTime))  // Break if duration has been reached
             {
                 break;
             }
 
-            Console.WriteLine("Breathe out...");
+            Console.Write("\nBreathe out...");
             ShowCountDown(seconds);
         }
 

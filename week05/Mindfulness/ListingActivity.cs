@@ -23,14 +23,17 @@ public class ListingActivity : Activity
         DisplayStartingMessage();
 
         // Display prompt and pause for 5 seconds
+        Console.WriteLine("List as many responses as you can to the following prompt:");
         GetRandomPrompt();
+        Console.Write("You may begin in: ");
         ShowSpinner(5);
+        Console.WriteLine();
 
         // Get user input until duration reached
         GetListFromUser();
 
         // Display number of items listed
-        Console.WriteLine($"You listed {_count} items");
+        Console.WriteLine($"\nYou listed {_count} items!\n");
 
         DisplayEndingMessage();
     }
@@ -41,7 +44,7 @@ public class ListingActivity : Activity
         int index = random.Next(_prompts.Count());
         string prompt = _prompts[index];
         _prompts.RemoveAt(index);  // Remove the prompt so it is not used again
-        Console.WriteLine(prompt);
+        Console.WriteLine($" --- {prompt} --- ");
     }
     public List<string> GetListFromUser()
     {
