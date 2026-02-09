@@ -9,7 +9,15 @@ public class ReflectingActivity : Activity
     };
     private List<string> _questions = new List<string>
     {
-        ""
+        "What was the first step you took?",
+        "How did it make you feel?",
+        "If you did it again, what would you do different?",
+        "What did you learn about yourself?",
+        "What made it so memorable for you?",
+        "How has that experience helped you to be a better person?",
+        "What parts were easiest? What parts were the most difficult?",
+        "How has this experience shaped how you make decisions today?",
+        "How has this experience helped you to learn your strengths?"
     };
 
     public ReflectingActivity(string name = "Reflection Activity", string description = "This activity will help you to remember how you have shown strength and resilience in the past. Reflecting on those times can help you recognize you strengths and how you can use them in the future.")
@@ -23,16 +31,24 @@ public class ReflectingActivity : Activity
     {
         DisplayStartingMessage();
 
+        DateTime startTime = DateTime.Now;
+
         // Display prompt and pause for 5 seconds
         DisplayPrompt();
         ShowSpinner(5);
 
         // Display questions at intervals of 10 seconds until duration reached
-        for (int i = 5; i < _duration / 10; i += 10)
+        while (!isTimeUp(startTime))
         {
             DisplayQuestion();
             ShowSpinner(10);
         }
+
+        // for (int i = 5; i < _duration / 10; i += 10)
+        // {
+        //     DisplayQuestion();
+        //     ShowSpinner(10);
+        // }
 
         DisplayEndingMessage();
     }

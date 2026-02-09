@@ -62,4 +62,17 @@ public class Activity
             Console.Write(i - 1);
         }
     }
+
+    // Checks to see if the activity has exceeded its duration
+    public bool isTimeUp(DateTime startTime)
+    {
+        if ((DateTime.Now - startTime).TotalSeconds < _duration)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 }
