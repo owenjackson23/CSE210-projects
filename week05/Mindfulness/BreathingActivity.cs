@@ -44,29 +44,28 @@ public class BreathingActivity : Activity
     {
         int seconds = 4;
 
+        DateTime startTime = DateTime.Now;
+
         // Repeat box breathing for duration
-        for (int i = 0; i < _duration / (seconds * 4); i += seconds)
+        while (!isTimeUp(startTime))
         {
             Console.WriteLine("Breathe in...");
             ShowCountDown(seconds);
-            i += seconds;
-            if (i >= _duration)  // Break if duration has been reached
+            if (isTimeUp(startTime))  // Break if duration has been reached
             {
                 break;
             }
 
             Console.WriteLine("Hold...");
             ShowCountDown(seconds);
-            i += seconds;
-            if (i >= _duration)
+            if (isTimeUp(startTime))
             {
                 break;
             }
 
             Console.WriteLine("Breathe out...");
             ShowCountDown(seconds);
-            i += seconds;
-            if (i >= _duration)
+            if (isTimeUp(startTime))
             {
                 break;
             }
@@ -74,6 +73,36 @@ public class BreathingActivity : Activity
             Console.WriteLine("Hold...");
             ShowCountDown(seconds);
         }
+
+        // for (int i = 0; i < _duration / (seconds * 4); i += seconds)
+        // {
+        //     Console.WriteLine("Breathe in...");
+        //     ShowCountDown(seconds);
+        //     i += seconds;
+        //     if (i >= _duration)
+        //     {
+        //         break;
+        //     }
+
+        //     Console.WriteLine("Hold...");
+        //     ShowCountDown(seconds);
+        //     i += seconds;
+        //     if (i >= _duration)
+        //     {
+        //         break;
+        //     }
+
+        //     Console.WriteLine("Breathe out...");
+        //     ShowCountDown(seconds);
+        //     i += seconds;
+        //     if (i >= _duration)
+        //     {
+        //         break;
+        //     }
+
+        //     Console.WriteLine("Hold...");
+        //     ShowCountDown(seconds);
+        // }
     }
     // Alternate breathing for shorter durations
     public void AlternateBreathing()
@@ -92,19 +121,47 @@ public class BreathingActivity : Activity
             seconds = 4;
         }
 
+        DateTime startTime = DateTime.Now;
+
         // Repeat alternate breathing for duration
-        for (int i = 0; i < _duration / (seconds * 2); i += seconds)
+        while (!isTimeUp(startTime))
         {
             Console.WriteLine("Breathe in...");
             ShowCountDown(seconds);
-            i += seconds;
-            if (i >= _duration)  // Break if duration has been reached
+            if (isTimeUp(startTime))  // Break if duration has been reached
             {
                 break;
             }
 
             Console.WriteLine("Breathe out...");
             ShowCountDown(seconds);
+        }
+
+        // for (int i = 0; i < _duration / (seconds * 2); i += seconds)
+        // {
+        //     Console.WriteLine("Breathe in...");
+        //     ShowCountDown(seconds);
+        //     i += seconds;
+        //     if (i >= _duration)
+        //     {
+        //         break;
+        //     }
+
+        //     Console.WriteLine("Breathe out...");
+        //     ShowCountDown(seconds);
+        // }
+    }
+
+    // Checks to see if the activity has exceeded its duration
+    public bool isTimeUp(DateTime startTime)
+    {
+        if ((DateTime.Now - startTime).TotalSeconds < _duration)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 }

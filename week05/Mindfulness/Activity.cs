@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 public class Activity
 {
     protected string _name;
@@ -12,24 +14,52 @@ public class Activity
 
     public void DisplayStartingMessage()
     {
-        // Provides name, description, and asks for and sets duration
-        // Prepare to begin
+        // Provides name and description
+        Console.WriteLine($"{_name}: {_description}");
+
+        // Asks for and sets duration
+        Console.WriteLine("How long would you like to do this activity?");
+        Console.Write("Enter duration (in seconds): ");
+        _duration = int.Parse(Console.ReadLine());
+        Console.WriteLine($"Starting {_name}.");
+
         // Pause
+        ShowSpinner(7);
     }
     public void DisplayEndingMessage()
     {
-        // Congratulate user
-        // Pause
-        // Display name and duration
-        // Pause
+        Console.WriteLine("Great work!");
+        ShowSpinner(3);
+        Console.WriteLine($"You did the {_name} for {_duration} seconds.");
+        ShowSpinner(7);
     }
 
+    // A pause animation
     public void ShowSpinner(int seconds)
     {
-        // A pause animation for several seconds
+        DateTime startTime = DateTime.Now;
+
+        while ((DateTime.Now - startTime).TotalSeconds < seconds)
+        {
+            Console.Write("+");
+
+            Thread.Sleep(500);
+
+            Console.Write("\b \b");  // This erases the previous character
+            Console.Write("-");  // Replace the character
+        }
     }
+
+    // A countdown timer animation
     public void ShowCountDown(int seconds)
     {
-        // A countdown timer animation
+        Console.Write(seconds);
+
+        for (int i = seconds; i > 0; i--)
+        {
+            Thread.Sleep(1000);  //Wait 1 second
+            Console.Write("\b \b");
+            Console.Write(i - 1);
+        }
     }
 }
