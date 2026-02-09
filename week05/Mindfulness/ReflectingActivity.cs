@@ -18,4 +18,53 @@ public class ReflectingActivity : Activity
         _name = name;
         _description = description;
     }
+
+    public void Run()
+    {
+        DisplayStartingMessage();
+
+        // Display prompt and pause for 5 seconds
+        DisplayPrompt();
+        ShowSpinner(5);
+
+        // Display questions at intervals of 10 seconds until duration reached
+        for (int i = 5; i < _duration / 10; i += 10)
+        {
+            DisplayQuestion();
+            ShowSpinner(10);
+        }
+
+        DisplayEndingMessage();
+    }
+
+    // Returns a random prompt from the _prompts list
+    public string GetRandomPrompt()
+    {
+        Random random = new Random();
+        int index = random.Next(_prompts.Count);
+        string prompt = _prompts[index];
+        _prompts.RemoveAt(index);  // Remove the prompt so it is not used again
+        return prompt;
+    }
+    // Returns a random question from the _questions list
+    public string GetRandomQuestion()
+    {
+        Random random = new Random();
+        int index = random.Next(_questions.Count);
+        string question = _questions[index];
+        _questions.RemoveAt(index);  // Remove the question so it is not used again
+        return question;
+    }
+    // Gets a random prompt and displays it
+    public void DisplayPrompt()
+    {
+        string prompt = GetRandomPrompt();
+        Console.WriteLine(prompt);
+    }
+    // Gets a random question and displays it
+    public void DisplayQuestion()
+    {
+        string question = GetRandomQuestion();
+        Console.WriteLine(question);
+    }
 }
