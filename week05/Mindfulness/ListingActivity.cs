@@ -26,7 +26,7 @@ public class ListingActivity : Activity
         Console.WriteLine("List as many responses as you can to the following prompt:");
         GetRandomPrompt();
         Console.Write("You may begin in: ");
-        ShowSpinner(5);
+        ShowCountDown(5);
         Console.WriteLine();
 
         // Get user input until duration reached
