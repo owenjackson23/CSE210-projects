@@ -15,7 +15,7 @@ class Program
         {
             string color = shape.GetColor();
             double area = shape.GetArea();
-            Console.WriteLine($"\nColor: {color}\nArea: {area:F2}");
+            Console.WriteLine($"\nColor: {color}\nArea: {area:F2}\n");
         }
     }
 }
