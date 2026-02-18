@@ -18,19 +18,17 @@ public abstract class Goal
     // Returns the details of the goal as a string
     public virtual string GetDetailsString()
     {
-        string details = $"{_shortName} ({_points} points) ";
+        string details = $"{_shortName} ({_points} points): {_description}";
 
         // If the goal is complete, check it off
         if (IsComplete())
         {
-            details += "[X]";
+            details = "[X] " + details;
         }
         else
         {
-            details += "[]";
+            details += "[] " + details;
         }
-
-        details += $"\n{_description}";
 
         return details;
     }

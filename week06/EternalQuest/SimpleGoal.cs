@@ -20,7 +20,18 @@ public class SimpleGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        // TODO: Implement method
-        return "";
+        string details = $"{_shortName} ({_points} points)\n  {_description}";
+
+        // If the goal is complete, check it off
+        if (IsComplete())
+        {
+            details = "[X] " + details;
+        }
+        else
+        {
+            details += "[] " + details;
+        }
+
+        return details;
     }
 }
