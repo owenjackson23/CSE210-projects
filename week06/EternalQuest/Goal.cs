@@ -17,6 +17,12 @@ public abstract class Goal
     // Returns True if the goal is complete, false otherwise
     public abstract bool IsComplete();
 
+    // Returns the name of the goal
+    public string GetName()
+    {
+        return _shortName;
+    }
+
     // Returns the details of the goal as a string
     public virtual string GetDetailsString()
     {

@@ -2,27 +2,37 @@ public class GoalManager
 {
     private List<Goal> _goals = new List<Goal>();
     private int _score = 0;
+    private int _level = 1;
+    private int _levelPoints = 0;
+    private int _levelTarget = 99999;
 
     public void Start()
     {
         // TODO: Implement method
     }
 
+    // Displays the player's score and level
     public void DisplayPlayerInfo()
     {
-        // TODO: Implement method
+        Console.WriteLine($"Score: {_score}\nLevel: {_level}");
     }
 
     // Lists the names of the goals in the _goals list
     public void ListGoalNames()
     {
-        // TODO: Implement method
+        foreach (Goal goal in _goals)
+        {
+            Console.WriteLine($"\n{goal.GetName()}");
+        }
     }
 
     // Lists the details of the goals in the _goals list
     public void ListGoalDetails()
     {
-        // TODO: Implement method
+        foreach (Goal goal in _goals)
+        {
+            Console.WriteLine($"\n{goal.GetDetailsString()}");
+        }
     }
 
     // Prompts the user to create a new goal
