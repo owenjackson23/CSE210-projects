@@ -6,10 +6,10 @@ public class EternalGoal : Goal
         // Empty constructor body
     }
 
+    // Awards points
     public override int RecordEvent()
     {
-        // TODO: Implement method
-        return base._points;
+        return _points;
     }
 
     // An EternalGoal is never complete, so this method always returns false
@@ -18,9 +18,10 @@ public class EternalGoal : Goal
         return false;
     }
 
+    // Returns the details of the goal as a string
+    // to save and load from a file
     public override string GetStringRepresentation()
     {
-        // TODO: Implement method
-        return "";
+        return $"{_shortName} ({_points} points)\n  {_description}";
     }
 }
