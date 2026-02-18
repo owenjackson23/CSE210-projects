@@ -11,8 +11,10 @@ public abstract class Goal
         _points = points;
     }
 
+    // Updates the progress of the goal
     public abstract int RecordEvent();
 
+    // Returns True if the goal is complete, false otherwise
     public abstract bool IsComplete();
 
     // Returns the details of the goal as a string
@@ -33,5 +35,7 @@ public abstract class Goal
         return details;
     }
 
+    // Returns the details of the goal as a string
+    // to save and load from a file
     public abstract string GetStringRepresentation();
 }

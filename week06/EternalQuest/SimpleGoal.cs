@@ -8,10 +8,11 @@ public class SimpleGoal : Goal
         _isComplete = false;
     }
 
+    // Updates the progress of the goal
     public override int RecordEvent()
     {
         _isComplete = true;
-        return base._points;
+        return _points;
     }
 
     public override bool IsComplete()
@@ -19,6 +20,8 @@ public class SimpleGoal : Goal
         return _isComplete;
     }
 
+    // Returns the details of the goal as a string
+    // to save and load from a file
     public override string GetStringRepresentation()
     {
         string details = $"{_shortName} ({_points} points)\n  {_description}";

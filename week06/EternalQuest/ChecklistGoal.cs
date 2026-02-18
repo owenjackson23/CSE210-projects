@@ -16,14 +16,14 @@ public class ChecklistGoal : Goal
     {
         _amountCompleted++;
 
+        int totalPoints = _points;
+
         if (IsComplete())
         {
-            return base._points;
+            totalPoints += _bonus;
         }
-        else
-        {
-            return 0;
-        }
+
+        return totalPoints;
     }
 
     // If the goal is completed enough times, return true
@@ -35,13 +35,21 @@ public class ChecklistGoal : Goal
     // Returns the details of the goal as a string
     public override string GetDetailsString()
     {
-        // TODO: Implement method
-        return "";
+        string details = $"{_shortName} ({_points} points): {_description}";
+
+        details = $"[{_amountCompleted}/{_target}] " + details;
+
+        return details;
     }
 
+    // Returns the details of the goal as a string
+    // to save and load from a file
     public override string GetStringRepresentation()
     {
-        // TODO: Implement method
-        return "";
+        string details = $"{_shortName} ({_points} points)\n  {_description}";
+
+        details = $"[{_amountCompleted}/{_target}] " + details;
+
+        return details;
     }
 }
