@@ -6,9 +6,10 @@ public class EternalGoal : Goal
         // Empty constructor body
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
         // TODO: Implement method
+        return base._points;
     }
 
     // An EternalGoal is never complete, so this method always returns false

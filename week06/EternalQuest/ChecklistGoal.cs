@@ -12,14 +12,23 @@ public class ChecklistGoal : Goal
         _bonus = bonus;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        // TODO: Implement method
+        _amountCompleted++;
+
+        if (IsComplete())
+        {
+            return base._points;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
+    // If the goal is completed enough times, return true
     public override bool IsComplete()
     {
-        // TODO: Implement method
         return _amountCompleted >= _target;
     }
 
